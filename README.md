@@ -1,5 +1,9 @@
-[![integration usage](https://img.shields.io/badge/dynamic/json?color=41BDF5&logo=home-assistant&label=integration%20usage&suffix=%20installs&cacheSeconds=15600&url=https://analytics.home-assistant.io/custom_integrations.json&query=%24.magic_caster_wand.total)](https://analytics.home-assistant.io/)
 # hass-magic-caster-wand
+[![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?logo=home-assistant)](https://hacs.xyz/)
+[![GitHub Release](https://img.shields.io/github/release/eigger/hass-magic-caster-wand.svg)](https://github.com/eigger/hass-magic-caster-wand/releases)
+[![License](https://img.shields.io/github/license/eigger/hass-magic-caster-wand)](https://github.com/eigger/hass-magic-caster-wand/blob/main/LICENSE)
+![integration usage](https://img.shields.io/badge/dynamic/json?color=41BDF5&logo=home-assistant&label=integration%20usage&suffix=%20installs&cacheSeconds=15600&url=https://analytics.home-assistant.io/custom_integrations.json&query=%24.magic_caster_wand.total)
+
 Magic Caster Wand Home Assistant Integration
 
 <table>
