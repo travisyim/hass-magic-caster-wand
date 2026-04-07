@@ -1,6 +1,6 @@
 {
-  "domain": "magic_caster_wand",
-  "name": "Magic Caster Wand",
+  "domain": "magic_caster_wand_revised",
+  "name": "Magic Caster Wand Revised",
   "bluetooth": [
     {
       "connectable": true,
@@ -9,16 +9,16 @@
     }
   ],
   "codeowners": [
-    "@eigger"
+    "@travisyim"
   ],
   "config_flow": true,
   "dependencies": [
     "bluetooth",
     "bluetooth_adapters"
   ],
-  "documentation": "https://www.github.com/eigger/hass-magic-caster-wand",
+  "documentation": "https://www.github.com/travisyim/hass-magic-caster-wand",
   "iot_class": "local_polling",
-  "issue_tracker": "https://www.github.com/eigger/hass-magic-caster-wand/issues",
+  "issue_tracker": "https://www.github.com/travisyim/hass-magic-caster-wand/issues",
   "requirements": [
     "numpy"
   ],
