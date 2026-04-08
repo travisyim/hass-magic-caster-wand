@@ -137,7 +137,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             entry_id = await get_entry_id_from_device(hass, device_id)
             if entry_id and entry_id in hass.data[DOMAIN]:
                 device: McwDevice = hass.data[DOMAIN][entry_id]["mcw"]
-                await device.buzz(duration)
+                await device.sendMacro(duration)
 
     async def handle_set_led(call: ServiceCall) -> None:
         """Handle execution of set_led service."""

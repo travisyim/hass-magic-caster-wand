@@ -144,10 +144,10 @@ class Macro:
             data.extend(cmd.to_bytes())
         return bytes([MACROIDS.CONTROL]) + bytes(data)
 
-def get_spell_macro(spell_name: str) -> Optional[Macro]:
+def get_spell_macro(spell_name: str) -> Macro:
     """Get a macro for a spell by name."""
     from .spells import SPELL_MAP
     name = spell_name.lower().replace(' ', '_').replace('-', '_')
     if name in SPELL_MAP:
         return SPELL_MAP[name].payoff()
-    return None
+    return (Macro().add_buzz(100))

@@ -10,7 +10,7 @@ from bleak_retry_connector import establish_connection
 from bluetooth_sensor_state_data import BluetoothData
 from home_assistant_bluetooth import BluetoothServiceInfoBleak
 
-from .mcw import McwClient, LedGroup, Macro
+from .mcw import McwClient, LedGroup, Macro, get_spell_macro
 from .remote_tensor_spell_detector import RemoteTensorSpellDetector
 from .spell_tracker import SpellTracker
 
@@ -149,7 +149,7 @@ class McwDevice:
             _LOGGER.debug("Server-side spell detected: %s", spell_name)
             self._coordinator_spell.async_set_updated_data(spell_name)
             self._schedule_spell_reset()
-            await self.buzz(100)
+            await self.sendMacro(spell_name)
 
     async def _turn_on_casting_led(self) -> None:
         """Turn on the casting LED with configured color."""
@@ -328,10 +328,11 @@ class McwDevice:
         """Check if the TFLite server is reachable."""
         return self._server_reachable
 
-    async def buzz(self, duration: int) -> None:
-        """Vibrate the wand."""
+    async def sendMacro(self, spell_name: str) -> None:
+        """Send spell macro to wand."""
         if self.is_connected() and self._mcw:
-            await self._mcw.buzz(duration)
+            macro = get_spell_macro(spell_name)
+            await self._mcw.send_macro(macro)
 
     async def clear_leds(self) -> None:
         """Clear all LEDs."""
