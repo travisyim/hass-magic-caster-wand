@@ -477,10 +477,6 @@ class McwClient:
         await self.write_command(macro.to_bytes())
 
     async def buzz(self, duration_ms: int) -> None:
-        class ExpectoPatronum(Spell):
-    Name = "expecto_patronum"
-
-    def payoff(self) -> Macro:
         macro = Macro()
             .add_buzz(400)
             .add_led_hex(LedGroup.TIP, "E0E0FF", 300)
@@ -493,7 +489,7 @@ class McwClient:
             .add_clear()
         """Vibrate the wand."""
         # macro = Macro().add_buzz(duration_ms)
-        # await self.send_macro(macro)
+        await self.send_macro(macro)
 
     def _parse_box_address(self, data: bytearray) -> None:
         """Parse box address (ID 0x09)"""
