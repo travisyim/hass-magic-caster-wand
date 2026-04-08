@@ -310,7 +310,7 @@ class McwClient:
                 "button_2": bool(mask & 0x02),
                 "button_3": bool(mask & 0x04),
                 "button_4": bool(mask & 0x08),
-                "button_all": (mask & 0x0F) == 0x0F,
+                "button_all": bin(mask & 0x0F).count('1') >= 3,
             }
 
             _LOGGER.debug("Button states: %s (mask=0x%02X)", button_states, mask)
