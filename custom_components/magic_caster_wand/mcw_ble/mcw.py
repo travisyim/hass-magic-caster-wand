@@ -477,17 +477,8 @@ class McwClient:
         await self.write_command(macro.to_bytes())
 
     async def buzz(self, duration_ms: int) -> None:
-        macro = Macro()
-            .add_buzz(400)
-            .add_led_hex(LedGroup.TIP, "E0E0FF", 300)
-            .add_led_hex(LedGroup.MID_UPPER, "C0C0FF", 300)
-            .add_led_hex(LedGroup.MID_LOWER, "A0A0FF", 300)
-            .add_led_hex(LedGroup.POMMEL, "8080FF", 300)
-            .add_delay(500)
-            .add_led_hex(LedGroup.TIP, "FFFFFF", 1000)
-            .add_delay(500)
-            .add_clear()
         """Vibrate the wand."""
+        macro = Macro().add_buzz(400).add_led_hex(LedGroup.TIP, "E0E0FF", 300).add_led_hex(LedGroup.MID_UPPER, "C0C0FF", 300).add_led_hex(LedGroup.MID_LOWER, "A0A0FF", 300).add_led_hex(LedGroup.POMMEL, "8080FF", 300).add_delay(500).add_led_hex(LedGroup.TIP, "FFFFFF", 1000).add_delay(500).add_clear()
         # macro = Macro().add_buzz(duration_ms)
         await self.send_macro(macro)
 
