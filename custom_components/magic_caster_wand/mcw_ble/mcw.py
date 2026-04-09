@@ -476,11 +476,6 @@ class McwClient:
         """Send a macro sequence to the wand."""
         await self.write_command(macro.to_bytes())
 
-    async def buzz(self, duration_ms: int) -> None:
-        """Vibrate the wand."""
-        macro = Macro().add_buzz(duration_ms)
-        await self.send_macro(macro)
-
     def _parse_box_address(self, data: bytearray) -> None:
         """Parse box address (ID 0x09)"""
         if len(data) < 7:
