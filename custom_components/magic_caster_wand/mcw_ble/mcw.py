@@ -8,7 +8,7 @@ import struct
 import asyncio
 from asyncio import Event, sleep, wait_for
 from bleak import BleakClient, BleakError
-from .macros import LedGroup, Macro
+from .macros import LedGroup, Macro, get_spell_macro
 from typing import Any, Callable, TypeVar
 
 SERVICE_UUID = "57420001-587e-48a0-974c-544d6163c577"
