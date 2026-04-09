@@ -1,9 +1,11 @@
 """Macro System for Magic Caster Wand BLE."""
-
+import logging
 import struct
 from dataclasses import dataclass, field
 from enum import IntEnum
 from typing import List, Optional, Union
+
+_LOGGER = logging.getLogger(__name__)
 
 class LedGroup(IntEnum):
     """LED groups on the wand."""
@@ -148,6 +150,7 @@ def get_spell_macro(spell_name: str) -> Macro:
     """Get a macro for a spell by name."""
     from .spells import SPELL_MAP
     name = spell_name.lower().replace(' ', '_').replace('-', '_')
+    _LOGGER.debug("Formatted spell name: %s", name)
     if name in SPELL_MAP:
         return SPELL_MAP[name].payoff()
     return (Macro().add_buzz(100))
